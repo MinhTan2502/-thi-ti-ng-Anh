@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ĐỀ THI MINH HỌA - TIẾNG ANH</title>
+
+  <!-- Font hiện đại, nhẹ nhàng -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* PALETTE SÁNG HƠN */
+      --bg: #e9edf7;
+      --panel: #ffffff;
+      --panel-2: #f4f6ff;
+      --text: #111827;
+      --muted: #6b7280;
+      --brand: #3b82f6;
+      --brand-2:#10b981;
+      --danger:#ef4444;
+      --border: rgba(15,23,42,0.08);
+      --shadow: 0 10px 30px rgba(15,23,42,0.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background:
+    radial-gradient(900px 500px at 110% -10%, rgba(59,130,246,0.18) 0%, transparent 60%),
+    radial-gradient(800px 600px at -10% -20%, rgba(16,185,129,0.15) 0%, transparent 55%),
+    #e9edf7; /* Màu nền mặc định sáng */
+  color: #111827;
+  min-height:100vh;
+
+
+    }
+    header{
+  position: sticky;
+  top:0;
+  z-index:10;
+  background: rgba(233,237,247,0.92);   /* Nền sáng mờ */
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid rgba(15,23,42,0.08);
+}
+
+    .wrap{max-width:1100px; margin:0 auto; padding:18px 18px;}
+    .topbar{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:nowrap;             /* giữ tất cả trên một hàng */
+}
+
+/* Cho màn hình nhỏ vẫn được phép xuống dòng */
+@media (max-width: 720px){
+  .topbar{
+    flex-wrap:wrap;
+  }
+}
+
+
+    }
+    .brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex:1 1 auto;        /* cho phép cụm này chiếm hết khoảng trống */
+  min-width:0;
+}
+
+    .logo{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background: linear-gradient(135deg, var(--brand), #a855f7);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.45);
+  overflow:hidden;                    /* CẮT logo cho khớp khung */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* Logo bên trong khung */
+.logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;                   /* hoặc 'contain' nếu muốn giữ nguyên tỉ lệ */
+}
+
+    }
+   .title h1{
+  margin:0;
+  font-size:15px;     /* ↓ nhỏ hơn nữa */
+  line-height:1.3;
+  font-weight:700;
+  letter-spacing:0.2px;
+}
+
+
+    }
+    .title p{
+  margin:2px 0 0;
+  color:var(--muted);
+  font-size:12px;        /* chữ mô tả nhỏ lại 1 xíu */
+}
+
+    }
+
+    main{padding:18px;}
+    .hero{
+      background: linear-gradient(180deg, #ffffff, var(--panel-2));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .hero .meta{
+      display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px;
+    }
+    .meta .chip{
+      background: #f3f4ff;
+      padding:6px 10px; border-radius:999px; border:1px solid var(--border);
+    }
+
+    /* Tabs */
+    .tabs{
+      margin-top:14px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+
+    /* TAB SÁNG, DỄ THẤY */
+    .tab-btn{
+      border:1px solid rgba(15,23,42,0.15);
+      background: rgba(255,255,255,0.9);
+      color: #111827;
+      padding:10px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+      font-size:14px;
+      transition:0.2s ease;
+      box-shadow: 0 3px 8px rgba(15,23,42,0.05);
+    }
+
+    .tab-btn:hover{
+      background: #eef2ff;
+    }
+@media (max-width: 640px){
+  .topbar{
+    flex-wrap: wrap;          /* Màn nhỏ thì cho phép xuống dòng */
+    align-items: flex-start;
+  }
+}
+    .tab-btn.active{
+      background: linear-gradient(
+        135deg,
+        rgba(59,130,246,0.96),
+        rgba(16,185,129,0.96)
+      );
+      color:#f9fafb;
+      border-color: rgba(15,23,42,0.05);
+      box-shadow: 0 8px 22px rgba(59,130,246,0.35);
+    }
+
+    /* Toolbar */
+    .toolbar{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr 0.6fr 0.6fr auto auto;
+      gap:10px;
+    }
+    @media (max-width: 980px){
+      .toolbar{grid-template-columns:1fr 1fr 1fr;}
+    }
+    @media (max-width: 680px){
+      .toolbar{grid-template-columns:1fr 1fr;}
+    }
+    .input, select{
+      width:100%;
+      background: var(--panel);
+      border:1px solid var(--border);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      outline:none;
+      font-size:14px;
+      box-shadow: 0 2px 6px rgba(15,23,42,0.03);
+    }
+    .input::placeholder{color:#9ca3af;}
+    select{cursor:pointer;}
+    .btn{
+      background: linear-gradient(135deg, var(--brand), #6366f1);
+      border:none; color:white; font-weight:700;
+      padding:10px 14px; border-radius:12px; cursor:pointer;
+      box-shadow: 0 8px 20px rgba(59,130,246,0.35);
+      transition:0.2s ease;
+      white-space:nowrap;
+    }
+    .btn.secondary{
+      background: #ffffff;
+      border:1px solid var(--border);
+      color:var(--text);
+      box-shadow:0 2px 6px rgba(15,23,42,0.05);
+      font-weight:600;
+    }
+    .btn:hover{transform: translateY(-1px);}
+    .btn:active{transform: translateY(0);}
+
+    /* Stats row */
+    .stats{
+      margin-top:12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .stat{
+      flex:1; min-width:160px;
+      background: var(--panel);
+      border:1px solid var(--border);
+      padding:12px; border-radius:14px;
+      display:flex; gap:10px; align-items:center;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.05);
+    }
+    .stat .num{font-size:20px; font-weight:800;}
+    .stat .label{font-size:12px; color:var(--muted);}
+
+    /* List */
+    .list{
+      margin-top:14px;
+      display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;
+    }
+    @media (max-width: 980px){
+      .list{grid-template-columns: repeat(2, 1fr);}
+    }
+    @media (max-width: 620px){
+      .list{grid-template-columns: 1fr;}
+    }
+    .card{
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      display:flex; flex-direction:column; gap:10px;
+      box-shadow: 0 8px 18px rgba(15,23,42,0.05);
+    }
+    .card h3{
+      margin:0; font-size:15px; font-weight:700; line-height:1.4;
+    }
+    .card .sub{
+      color:var(--muted); font-size:12px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .smallchip{
+      padding:4px 8px; border-radius:999px;
+      background: #f3f4ff;
+      border:1px solid var(--border);
+    }
+    .card .foot{
+      margin-top:auto;
+      display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;
+    }
+    .kv{
+      display:flex; gap:8px; font-size:12px; color:var(--muted);
+    }
+    .kv b{color:var(--text); font-weight:700;}
+    .viewbtn{
+      display:flex; gap:6px; align-items:center;
+      padding:8px 10px; border-radius:10px;
+      background: rgba(59,130,246,0.08);
+      border:1px solid rgba(59,130,246,0.4);
+      color:var(--text); font-weight:700; font-size:13px;
+      cursor:pointer;
+    }
+
+    .empty{
+      margin-top:12px; color:var(--muted); text-align:center; padding:22px;
+      border:1px dashed var(--border); border-radius:12px;
+      background: rgba(255,255,255,0.7);
+    }
+
+    /* Modal PDF viewer */
+    .modal{
+      position:fixed; inset:0; z-index:999;
+      background: rgba(15,23,42,0.45);
+      display:none; place-items:center; padding:16px;
+      backdrop-filter: blur(4px);
+    }
+    .modal.open{display:grid;}
+    .modal-panel{
+      width:min(1100px, 100%);
+      height:min(85vh, 900px);
+      background: var(--panel-2);
+      border:1px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow: 0 20px 40px rgba(15,23,42,0.35);
+      display:flex; flex-direction:column;
+    }
+    .modal-head{
+      padding:10px 12px; background: var(--panel);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      border-bottom:1px solid var(--border);
+    }
+    .modal-title{font-weight:700; font-size:14px;}
+    .close{
+      background: transparent; color:var(--text);
+      border:1px solid var(--border);
+      padding:6px 10px; border-radius:10px; cursor:pointer;
+    }
+    .pdf-frame{
+      width:100%; height:100%; border:none; background:#111827;
+    }
+
+    footer{
+      color:var(--muted); font-size:12px; padding:18px; text-align:center;
+      border-top:1px solid var(--border); margin-top:18px;
+    }
+    a{color:inherit; text-decoration:none;}
+	/* KHUNG & NỀN ĐỒNG HỒ – NỀN ĐẬM, TÁCH HẲN KHỎI NỀN TRANG */
+.clock{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+
+  background: #111827;                 /* nền đậm (xanh đen) */
+  border:2px solid #0f172a;            /* viền rõ hơn */
+  padding:10px 14px;
+  border-radius:14px;
+  min-width:190px;
+  flex-shrink:0;
+
+  box-shadow: 0 10px 22px rgba(15,23,42,0.45);  /* đổ bóng mạnh hơn */
+}
+
+/* Giờ: to, sáng */
+.clock .time{
+  font-size:18px;
+  font-weight:700;
+  color:#f9fafb;                       /* trắng */
+}
+
+/* Ngày: nhỏ hơn, xám nhạt */
+.clock .date{
+  font-size:12px;
+  color:#9ca3af;
+  margin-top:2px;
+}
+}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="wrap topbar">
+    <div class="brand">
+      <div class="logo"> <img src="MT.png" alt="Logo đề thi minh họa"></div>
+      <div class="title">
+        <h1>ĐỀ THI THEO FORM MINH HỌA CỦA BỘ GD&ĐT</h1>
+        <p>Môn thi: <b>TIẾNG ANH</b> · Biên soạn: <b>Minh Tân Akira</b></p>
+      </div>
+    </div>
+    <div class="clock" aria-live="polite">
+      <div class="time" id="clockTime">--:--:--</div>
+      <div class="date" id="clockDate">--/--/----</div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="meta">
+      <div class="chip">Tổng hợp đề thi thử & form minh họa mới nhất</div>
+      <div class="chip">Xem PDF trực tiếp trên trang</div>
+      <div class="chip">Cập nhật liên tục</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" id="tab-schools" role="tab" aria-selected="true">
+        Đề thi thử của các Trường & Sở
+      </button>
+      <button class="tab-btn" id="tab-form" role="tab" aria-selected="false">
+        Đề thi thử theo form minh họa
+      </button>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar" aria-label="Thanh tìm kiếm và sắp xếp">
+      <input id="searchInput" class="input" type="search" placeholder="Tìm theo tên đề, trường/sở, năm..." />
+
+      <select id="sortBy">
+        <option value="date">Sắp xếp theo ngày up</option>
+        <option value="views">Sắp xếp theo lượt xem</option>
+        <option value="title">Sắp xếp theo tên đề</option>
+      </select>
+
+      <select id="sortOrder">
+        <option value="desc">Giảm dần</option>
+        <option value="asc">Tăng dần</option>
+      </select>
+
+      <input id="fromDate" class="input" type="date" title="Từ ngày" />
+      <input id="toDate" class="input" type="date" title="Đến ngày" />
+
+      <button id="resetBtn" class="btn secondary">Reset lọc</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats" id="statsRow">
+      <div class="stat">
+        <div>
+          <div class="num" id="totalCount">0</div>
+          <div class="label">Số đề trong tab</div>
+        </div>
+      </div>
+      <div class="stat">
+        <div>
+          <div class="num" id="latestDate">--/--/----</div>
+          <div class="label">Ngày up gần nhất</div>
+        </div>
+      </div>
+      <div class="stat">
+        <div>
+          <div class="num" id="totalViews">0</div>
+          <div class="label">Tổng lượt xem</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- List -->
+  <section id="listSection" class="list" aria-live="polite"></section>
+  <div id="emptyState" class="empty" style="display:none;">Không tìm thấy đề phù hợp.</div>
+</main>
+
+<!-- PDF Modal -->
+<div id="pdfModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div class="modal-title" id="pdfTitle">Xem PDF</div>
+      <button class="close" id="closeModal">Đóng</button>
+    </div>
+    <!-- Trình xem PDF trực tiếp (không chuyển web khác) -->
+    <iframe id="pdfFrame" class="pdf-frame" src="" title="PDF Viewer"></iframe>
+  </div>
+</div>
+
+<footer>
+  © 2025 · Kho đề thi Tiếng Anh · Giao diện sáng, tối giản, dễ đọc.
+</footer>
+
+<script>
+  /********************
+   * 1) DATA MẪU
+   * Thay pdfUrl bằng link thật của bạn.
+   ********************/
+  const data = [
+    {
+      id: 1,
+      tab: "schools",
+      title: "Đề thi thử THPT Chuyên Lê Hồng Phong 2025 - Lần 1",
+      source: "THPT Chuyên Lê Hồng Phong",
+      uploadDate: "2025-11-10",
+      views: 1244,
+      pdfUrl: "pdfs/de-lehongphong-2025-lan1.pdf"
+    },
+    {
+      id: 2,
+      tab: "schools",
+      title: "Đề thi thử Sở GD&ĐT Hà Nội 2025",
+      source: "Sở GD&ĐT Hà Nội",
+      uploadDate: "2025-11-18",
+      views: 980,
+      pdfUrl: "pdfs/de-so-hanoi-2025.pdf"
+    },
+    {
+      id: 3,
+      tab: "schools",
+      title: "Đề thi thử THPT Nguyễn Thượng Hiền 2025",
+      source: "THPT Nguyễn Thượng Hiền",
+      uploadDate: "2025-10-25",
+      views: 650,
+      pdfUrl: "pdfs/de-nguyenthuonghien-2025.pdf"
+    },
+    {
+      id: 4,
+      tab: "form",
+      title: "Đề thi thử theo Form Minh Họa Bộ GD&ĐT 2025 - Đề 01",
+      source: "Form Minh Họa",
+      uploadDate: "2025-11-05",
+      views: 2101,
+      pdfUrl: "pdfs/form-minhhoa-2025-de01.pdf"
+    },
+    {
+      id: 5,
+      tab: "form",
+      title: "Đề thi thử theo Form Minh Họa Bộ GD&ĐT 2025 - Đề 02",
+      source: "Form Minh Họa",
+      uploadDate: "2025-11-20",
+      views: 1765,
+      pdfUrl: "pdfs/form-minhhoa-2025-de02.pdf"
+    }
+  ];
+
+  /********************
+   * 2) STATE
+   ********************/
+  let currentTab = "schools";
+
+  const els = {
+    tabSchools: document.getElementById("tab-schools"),
+    tabForm: document.getElementById("tab-form"),
+    list: document.getElementById("listSection"),
+    empty: document.getElementById("emptyState"),
+    search: document.getElementById("searchInput"),
+    sortBy: document.getElementById("sortBy"),
+    sortOrder: document.getElementById("sortOrder"),
+    fromDate: document.getElementById("fromDate"),
+    toDate: document.getElementById("toDate"),
+    resetBtn: document.getElementById("resetBtn"),
+    totalCount: document.getElementById("totalCount"),
+    latestDate: document.getElementById("latestDate"),
+    totalViews: document.getElementById("totalViews"),
+    pdfModal: document.getElementById("pdfModal"),
+    pdfFrame: document.getElementById("pdfFrame"),
+    pdfTitle: document.getElementById("pdfTitle"),
+    closeModal: document.getElementById("closeModal"),
+  };
+
+  /********************
+   * 3) HELPERS
+   ********************/
+  const fmtDate = (yyyyMMdd) => {
+    const d = new Date(yyyyMMdd + "T00:00:00");
+    if (Number.isNaN(d.getTime())) return "--/--/----";
+    return d.toLocaleDateString("vi-VN");
+  };
+
+  function filterData(){
+    const q = els.search.value.trim().toLowerCase();
+    const sortBy = els.sortBy.value;
+    const sortOrder = els.sortOrder.value;
+    const from = els.fromDate.value ? new Date(els.fromDate.value) : null;
+    const to = els.toDate.value ? new Date(els.toDate.value) : null;
+
+    let items = data.filter(x => x.tab === currentTab);
+
+    // Search
+    if (q){
+      items = items.filter(x =>
+        x.title.toLowerCase().includes(q) ||
+        x.source.toLowerCase().includes(q)
+      );
+    }
+
+    // Date range
+    if (from){
+      items = items.filter(x => new Date(x.uploadDate) >= from);
+    }
+    if (to){
+      items = items.filter(x => new Date(x.uploadDate) <= to);
+    }
+
+    // Sort
+    items.sort((a,b)=>{
+      let va, vb;
+      if (sortBy === "views"){
+        va = a.views; vb = b.views;
+      } else if (sortBy === "title"){
+        va = a.title.toLowerCase(); vb = b.title.toLowerCase();
+      } else {
+        va = new Date(a.uploadDate).getTime();
+        vb = new Date(b.uploadDate).getTime();
+      }
+
+      if (va < vb) return sortOrder === "asc" ? -1 : 1;
+      if (va > vb) return sortOrder === "asc" ? 1 : -1;
+      return 0;
+    });
+
+    return items;
+  }
+
+  function render(){
+    const items = filterData();
+    els.list.innerHTML = "";
+
+    if (!items.length){
+      els.empty.style.display = "block";
+    } else {
+      els.empty.style.display = "none";
+    }
+
+    // Update stats
+    els.totalCount.textContent = items.length;
+
+    let latest = null;
+    let viewsSum = 0;
+    items.forEach(x=>{
+      viewsSum += x.views;
+      if (!latest || new Date(x.uploadDate) > new Date(latest)){
+        latest = x.uploadDate;
+      }
+    });
+    els.latestDate.textContent = latest ? fmtDate(latest) : "--/--/----";
+    els.totalViews.textContent = viewsSum.toLocaleString("vi-VN");
+
+    // Cards
+    items.forEach((x, idx)=>{
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="sub">
+          <span class="smallchip">#${String(idx+1).padStart(2,"0")}</span>
+          <span class="smallchip">${x.source}</span>
+          <span class="smallchip">Up: ${fmtDate(x.uploadDate)}</span>
+        </div>
+        <h3>${x.title}</h3>
+        <div class="foot">
+          <div class="kv">
+            <span>Lượt xem: <b>${x.views.toLocaleString("vi-VN")}</b></span>
+          </div>
+          <button class="viewbtn" data-id="${x.id}">
+            📄 Xem PDF
+          </button>
+        </div>
+      `;
+      els.list.appendChild(card);
+    });
+
+    // Bind view buttons
+    document.querySelectorAll(".viewbtn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const id = Number(btn.dataset.id);
+        const item = data.find(d=>d.id===id);
+        openPdf(item);
+      });
+    });
+  }
+
+  function setActiveTab(tab){
+    currentTab = tab;
+    els.tabSchools.classList.toggle("active", tab==="schools");
+    els.tabForm.classList.toggle("active", tab==="form");
+    els.tabSchools.setAttribute("aria-selected", tab==="schools");
+    els.tabForm.setAttribute("aria-selected", tab==="form");
+    render();
+  }
+
+  function openPdf(item){
+    els.pdfTitle.textContent = item.title;
+    // Hiển thị PDF trực tiếp trong iframe
+    els.pdfFrame.src = item.pdfUrl;
+    els.pdfModal.classList.add("open");
+    els.pdfModal.setAttribute("aria-hidden","false");
+  }
+  function closePdf(){
+    els.pdfFrame.src = "";
+    els.pdfModal.classList.remove("open");
+    els.pdfModal.setAttribute("aria-hidden","true");
+  }
+
+  /********************
+   * 4) EVENTS
+   ********************/
+  els.tabSchools.addEventListener("click", ()=> setActiveTab("schools"));
+  els.tabForm.addEventListener("click", ()=> setActiveTab("form"));
+
+  ["input","change"].forEach(ev=>{
+    els.search.addEventListener(ev, render);
+    els.sortBy.addEventListener(ev, render);
+    els.sortOrder.addEventListener(ev, render);
+    els.fromDate.addEventListener(ev, render);
+    els.toDate.addEventListener(ev, render);
+  });
+
+  els.resetBtn.addEventListener("click", ()=>{
+    els.search.value = "";
+    els.sortBy.value = "date";
+    els.sortOrder.value = "desc";
+    els.fromDate.value = "";
+    els.toDate.value = "";
+    render();
+  });
+
+  els.closeModal.addEventListener("click", closePdf);
+  els.pdfModal.addEventListener("click", (e)=>{
+    if (e.target === els.pdfModal) closePdf();
+  });
+  document.addEventListener("keydown", (e)=>{
+    if (e.key === "Escape") closePdf();
+  });
+
+  /********************
+   * 5) REAL-TIME CLOCK
+   ********************/
+  function tickClock(){
+    const now = new Date();
+    const time = now.toLocaleTimeString("vi-VN");
+    const date = now.toLocaleDateString("vi-VN", {
+      weekday:"long", year:"numeric", month:"2-digit", day:"2-digit"
+    });
+    document.getElementById("clockTime").textContent = time;
+    document.getElementById("clockDate").textContent = date;
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /********************
+   * INIT
+   ********************/
+  render();
+</script>
+</body>
+</html>
